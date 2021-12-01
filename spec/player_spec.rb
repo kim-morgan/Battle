@@ -8,7 +8,8 @@ describe Player do
 
   it "should be able to reduce HP" do
     player = Player.new("Kim")
-    player.attacked
-    expect(player.read_hp).to eq 90
+    player2 = Player.new("Titus")
+    player.attack(player2)
+    expect(player2.read_hp).to eq 90
   end
 end

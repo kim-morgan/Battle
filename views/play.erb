@@ -6,6 +6,6 @@
     <input type="submit" value="Attack!">
 </form>
 
-<% if $player2.previous_action == "P2 attacked" %>
+<% if $player1.previous_action == "P2 attacked" %>
 <h3> Attack on <%= @name2 %> successful! </h3>
 <% end %>

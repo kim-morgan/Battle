@@ -16,8 +16,12 @@ class Player
     @hp
   end
 
-  def attacked
-    @hp -= 10
+  def edit_hp(amount)
+    @hp = amount
+  end
+
+  def attack(player)
+    player.edit_hp(player.read_hp - 10)
     execute_action("P2 attacked")
   end
 
