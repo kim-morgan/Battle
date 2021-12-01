@@ -20,19 +20,14 @@ feature 'fill in player name' do
   end
 
   scenario 'names entered should appear on screen after submission' do
-    fill_in('name1', with: 'Kim')
-    fill_in('name2', with: 'Chris')
-    click_button('Submit')
+    sign_in_and_play
     expect(page).to have_content 'Kim vs Chris'
   end
 end
 
 feature "can see player 2 HP" do
   before do
-    visit('/')
-    fill_in('name1', with: 'Kim')
-    fill_in('name2', with: 'Chris')
-    click_button('Submit')
+    sign_in_and_play
   end
   scenario "as player 1" do
     expect(page).to have_content "Chris HP: 100"
