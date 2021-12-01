@@ -1,8 +1,9 @@
 class Game
-  attr_reader :previous_action
+  attr_reader :previous_action, :player1, :player2
   
-  def initialize
-    @previous_action = nil
+  def initialize(player1,player2)
+    @player1 = player1
+    @player2 = player2
   end
 
   def attack(player)

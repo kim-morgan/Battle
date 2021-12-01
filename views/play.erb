@@ -1,11 +1,11 @@
-<h1> <%= @name1 %> vs <%= @name2 %> </h1>
+<h1> <%= @game.player1.read_name %> vs <%= @game.player2.read_name %> </h1>
 
-<h2><%= @name2 %> HP: <%= @player2_hp %> </h2>
+<h2><%= @game.player2.read_name %> HP: <%= @game.player2.read_hp %> </h2>
 
 <form action="/attack_player2" method="post">
     <input type="submit" value="Attack!">
 </form>
 
 <% if $game.previous_action == "P2 attacked" %>
-<h3> Attack on <%= @name2 %> successful! </h3>
+<h3> Attack on <%= @game.player2.read_name %> successful! </h3>
 <% end %>
