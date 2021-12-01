@@ -27,3 +27,14 @@ feature 'fill in player name' do
   end
 end
 
+feature "can see player 2 HP" do
+  before do
+    visit('/')
+    fill_in('name1', with: 'Kim')
+    fill_in('name2', with: 'Chris')
+    click_button('Submit')
+  end
+  scenario "as player 1" do
+    expect(page).to have_content "Chris HP: 100"
+  end
+end
