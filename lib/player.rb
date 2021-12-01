@@ -1,10 +1,12 @@
 class Player
 
+  DEFAULT_HP = 100
+
   attr_reader :previous_action
 
   def initialize(name)
     @name = name
-    @hp = 100
+    @hp = DEFAULT_HP
     @previous_action = nil
   end
 
@@ -16,12 +18,12 @@ class Player
     @hp
   end
 
-  def edit_hp(amount)
-    @hp = amount
+  def receive_damage
+    @hp -= 10
   end
 
   def attack(player)
-    player.edit_hp(player.read_hp - 10)
+    player.receive_damage
     execute_action("P2 attacked")
   end
 

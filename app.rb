@@ -9,9 +9,6 @@ class Battle < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  # @@player2_hp = 100
-  @@previous_action = nil
-
   get '/' do
     erb(:index)
   end
