@@ -9,7 +9,7 @@ class Battle < Sinatra::Base
     register Sinatra::Reloader
   end
 
-  @@player2_hp = 100
+  # @@player2_hp = 100
   @@previous_action = nil
 
   get '/' do
@@ -25,12 +25,12 @@ class Battle < Sinatra::Base
   get '/play' do
     @name1 = $player1.read_name
     @name2 = $player2.read_name
+    @player2_hp = $player2.read_hp
     erb(:play)
   end
 
   post '/attack_player2' do
-    @@player2_hp -= 10
-    @@previous_action = "P2 attacked"
+    $player2.attacked
     redirect '/play'
   end
 

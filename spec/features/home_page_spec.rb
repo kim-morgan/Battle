@@ -25,29 +25,3 @@ feature 'fill in player name' do
   end
 end
 
-feature "can see player 2 HP" do
-  before do
-    sign_in_and_play
-  end
-
-  scenario "as player 1" do
-    expect(page).to have_content "Chris HP: 100"
-  end
-end
-
-feature "can attack player 2" do
-
-  scenario "as player 1 and see player 2 HP change" do
-    sign_in_and_play
-    click_button("Attack!")
-    expect(page).to have_content "Chris HP: 90"
-  end
-
-  scenario "as player 1 and get a confirmation" do
-    sign_in_and_play
-    click_button("Attack!")
-    expect(page).to have_content "Attack on Chris successful!"
-  end
-
-
-end
