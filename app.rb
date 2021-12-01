@@ -1,6 +1,8 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
 require_relative './lib/player'
+require_relative './lib/game'
+
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -10,6 +12,7 @@ class Battle < Sinatra::Base
   end
 
   get '/' do
+    $game = Game.new
     erb(:index)
   end
 
@@ -27,7 +30,7 @@ class Battle < Sinatra::Base
   end
 
   post '/attack_player2' do
-    $player1.attack($player2)
+    $game.attack($player2)
     redirect '/play'
   end
 
