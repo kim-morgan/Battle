@@ -1,3 +1,11 @@
 <h1> <%= @name1 %> vs <%= @name2 %> </h1>
 
-<h2><%= @name2 %> HP: 100</h2>
+<h2><%= @name2 %> HP: <%= @@player2_hp %> </h2>
+
+<form action="/attack_player2" method="post">
+    <input type="submit" value="Attack!">
+</form>
+
+<% if @@previous_action == "P2 attacked" %>
+<h3> Attack on <%= @name2 %> successful! </h3>
+<% end %>
