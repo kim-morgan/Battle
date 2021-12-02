@@ -19,4 +19,10 @@ describe Game do
     expect(player1).to receive(:receive_damage)
     game.attack(player1)
   end
+  
+  it "should be able to count turns" do
+    expect(player1).to receive(:receive_damage)
+    game.attack(player1)
+    expect(game.turn).to eq 2
+  end
 end
