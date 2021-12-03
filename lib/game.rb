@@ -9,8 +9,8 @@ class Game
     @opponent = @player2
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack(player, damage)
+    player.receive_damage(damage)
     change_turns unless over?
   end
 
@@ -22,4 +22,9 @@ class Game
   def over?
     @player1.read_hp == 0 || @player2.read_hp == 0
   end
+
+  def started?
+    @player1.read_hp < Player::DEFAULT_HP || @player2.read_hp < Player::DEFAULT_HP
+  end
+
 end

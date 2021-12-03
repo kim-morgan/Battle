@@ -15,20 +15,29 @@ describe Game do
     expect(game.player2).to eq(player2)
   end
 
-  context '#attack' 
-  it "should inform the player to receive damage" do
-    expect(player1).to receive(:receive_damage)
-    game.attack(player1)
+  context '#attack' do
+
+    it "should inform the player to receive damage" do
+      expect(player1).to receive(:receive_damage)
+      game.attack(player1, 10)
+    end
+
+    it "should be able to change players" do
+      expect(player2).to receive(:receive_damage)
+      game.attack(player2, 10)
+      expect(game.current_player).to eq player2
+    end
+
+    it "should know when the game is over" do
+      game1 = Game.new(player1, dead_double)
+      expect(game1.over?).to be true
+    end
+
+    it "should know when the game has started" do
+      game1 = Game.new(player1, dead_double)
+      expect(game1.started?).to be true
+    end
   end
 
-  it "should be able to change players" do
-    expect(player2).to receive(:receive_damage)
-    game.attack(player2)
-    expect(game.current_player).to eq player2
-  end
-
-  it "should know when the game is over" do
-    game1 = Game.new(player1, dead_double)
-    expect(game1.over?).to be true
-  end
+  
 end

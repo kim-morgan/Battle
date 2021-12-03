@@ -17,7 +17,11 @@ describe Player do
 
   context '#receive_damage' 
     it "should be able to reduce HP" do
-      expect{player.receive_damage}.to change{ player.read_hp }.by(-10)
+      expect{player.receive_damage(10)}.to change{ player.read_hp }.by(-10)
+    end
+
+    it "should be able to reduce HP by a variable amount" do
+      expect{player.receive_damage(20)}.to change{ player.read_hp }.by(-20)
     end
 
 end
