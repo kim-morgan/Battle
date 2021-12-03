@@ -1,4 +1,5 @@
 require 'game'
+require 'player'
 
 describe Game do
   let(:game) {described_class.new(player1,player2)}
@@ -24,5 +25,12 @@ describe Game do
     expect(player2).to receive(:receive_damage)
     game.attack(player2)
     expect(game.current_player).to eq player2
+  end
+
+  it "should know when the game is over" do
+    player = Player.new('Kim')
+    game1 = Game.new(player, player2)
+    10.times { game1.attack(player) }
+    expect(game1.over?).to be true
   end
 end

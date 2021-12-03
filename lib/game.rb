@@ -19,4 +19,7 @@ class Game
     @opponent = @players.reject{ |player| player == @current_player }[0]
   end
 
+  def over?
+    @player1.read_hp == 0 || @player2.read_hp == 0
+  end
 end

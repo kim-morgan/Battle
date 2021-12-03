@@ -41,3 +41,11 @@ feature "can swap turns" do
     expect(page).to have_content("Chris's turn")
   end
 end
+
+feature "game can be lost" do
+  scenario "goes to gameover page once game has been won" do
+    sign_in_and_play
+    20.times { click_button("Attack!") }
+    expect(page).to have_content("GAME OVER")
+  end
+end
