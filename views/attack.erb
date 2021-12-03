@@ -2,7 +2,7 @@
 
 <h2> <%= @game.current_player.read_name %>'s turn </h2>
 
-<h3><%= @game.opponent.read_name %> HP: <%= @game.opponent.read_hp %> </h3>
+<h3><%=@game.player1.read_name %> HP: <%= @game.player1.read_hp %> | <%= @game.player2.read_name %> HP: <%= @game.player2.read_hp %> </h3>
 
 <form action="/attack" method="get">
     <input type="submit" value="Attack!">

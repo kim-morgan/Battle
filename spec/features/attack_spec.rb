@@ -2,13 +2,17 @@ require 'capybara/rspec'
 require_relative '../../app'
 Capybara.app = Battle
 
-feature "can see player 2 HP" do
+feature "can see HP" do
   before do
     sign_in_and_play
   end
 
-  scenario "as player 1" do
+  scenario "can see player 2's HP" do
     expect(page).to have_content "Chris HP: 100"
+  end
+
+  scenario "can see own HP" do
+    expect(page).to have_content "Kim HP: 100"
   end
 end
 
