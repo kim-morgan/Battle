@@ -27,10 +27,10 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = $game
+    @game.attack(@game.opponent)
     if @game.over? 
       redirect '/gameover'
     else
-      @game.attack(@game.opponent)
       erb(:attack)
     end
   end

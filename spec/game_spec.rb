@@ -1,10 +1,10 @@
 require 'game'
-require 'player'
 
 describe Game do
-  let(:game) {described_class.new(player1,player2)}
-  let(:player1) { double("Kim")}
-  let(:player2) { double("Chris")}
+  let(:game) { described_class.new(player1,player2) }
+  let(:player1) { double("Kim", :read_hp => 100) }
+  let(:player2) { double("Chris", :read_hp => 100) }
+  let(:dead_double) { double("Dead", :read_hp => 0) }
   
   context '#add_players'
   it 'should accept player1 and retrieve it' do
@@ -28,9 +28,7 @@ describe Game do
   end
 
   it "should know when the game is over" do
-    player = Player.new('Kim')
-    game1 = Game.new(player, player2)
-    10.times { game1.attack(player) }
+    game1 = Game.new(player1, dead_double)
     expect(game1.over?).to be true
   end
 end

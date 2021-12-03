@@ -11,7 +11,7 @@ class Game
 
   def attack(player)
     player.receive_damage
-    change_turns
+    change_turns unless over?
   end
 
   def change_turns
