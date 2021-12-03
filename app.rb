@@ -25,16 +25,10 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
- get '/attack_1' do
+  get '/attack' do
     @game = $game
-    @game.attack(@game.player1)
-    erb(:attack_1)
-  end
-
-  get '/attack_2' do
-    @game = $game
-    @game.attack(@game.player2)
-    erb(:attack_2)
+    @game.attack(@game.opponent)
+    erb(:attack)
   end
 
   run! if app_file == $0
