@@ -1,7 +1,3 @@
-require 'capybara/rspec'
-require_relative '../../app'
-Capybara.app = Battle
-
 feature 'fill in player name' do
   before(:each) do 
     visit('/')
